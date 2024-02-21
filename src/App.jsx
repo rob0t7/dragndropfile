@@ -1,13 +1,14 @@
-import { Button } from "./Button";
-import { FileDropzone } from "./FileDropzone";
-import { InputField } from "./InputField";
+import { Button } from './Button';
+import { FileDropzone } from './FileDropzone';
+import { InputField } from './InputField';
 
 function App() {
   function handleSubmit(event) {
     event.preventDefault();
     const form = new FormData(event.target);
     const fields = Object.fromEntries(form);
-    console.log("fields: ", fields);
+    fields['files'] = form.getAll('files');
+    console.log('fields: ', fields);
   }
 
   return (
